@@ -1,0 +1,19 @@
+{
+  "name": "node-matrix-import-xml-linter",
+  "version": "1.0.0",
+  "description": "Linting rules for Squiz Matrix' \"Import Assets from XML Tool\" XML",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshgillies/node-matrix-import-xml-linter.git"
+  },
+  "author": "Josh Gillies <npm@joshgilli.es> (http://joshgilli.es/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joshgillies/node-matrix-import-xml-linter/issues"
+  },
+  "homepage": "https://github.com/joshgillies/node-matrix-import-xml-linter#readme"
+}
