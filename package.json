@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/joshgillies/node-matrix-import-xml-linter/issues"
   },
-  "homepage": "https://github.com/joshgillies/node-matrix-import-xml-linter#readme"
+  "homepage": "https://github.com/joshgillies/node-matrix-import-xml-linter#readme",
+  "devDependencies": {
+    "standard": "^5.4.1",
+    "tape": "^4.2.2"
+  },
+  "dependencies": {
+    "xml2js": "^0.4.15"
+  }
 }
