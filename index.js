@@ -9,14 +9,16 @@ module.exports = function linter (source) {
       emitter.emit('error', err)
     }
 
-    result.actions.action.forEach(function (action) {
-      if (action.action_type[0] === 'create_asset') {
-        if (action.parentid && action.parentid[0] === '1') {
-          console.log('lol')
-          emitter.emit('notice', 'Top most root node (#1) in use.')
+    if (result && result.actions) {
+      result.actions.action.forEach(function (action) {
+        if (action.action_type[0] === 'create_asset') {
+          if (action.parentid && action.parentid[0] === '1') {
+            console.log('lol')
+            emitter.emit('notice', 'Top most root node (#1) in use.')
+          }
         }
-      }
-    })
+      })
+    }
 
     emitter.emit('end')
   })
