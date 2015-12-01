@@ -1,12 +1,23 @@
 var EventEmitter = require('events').EventEmitter
 var parseString = require('xml2js').parseString
+var inherits = require('inherits')
 
-module.exports = function linter (source) {
-  var emitter = new EventEmitter()
+function Linter (opts) {
+  if (!(this instanceof Linter)) {
+    return new Linter(opts)
+  }
+
+  EventEmitter.call(this)
+}
+
+inherits(Linter, EventEmitter)
+
+Linter.prototype.lint = function lint (source) {
+  var self = this
 
   parseString(source, function (err, result) {
     if (err) {
-      emitter.emit('error', err)
+      self.emit('error', err)
     }
 
     if (result && result.actions) {
@@ -14,14 +25,14 @@ module.exports = function linter (source) {
         if (action.action_type[0] === 'create_asset') {
           if (action.parentid && action.parentid[0] === '1') {
             console.log('lol')
-            emitter.emit('notice', 'Top most root node (#1) in use.')
+            self.emit('notice', 'Top most root node (#1) in use.')
           }
         }
       })
     }
 
-    emitter.emit('end')
+    self.emit('end')
   })
-
-  return emitter
 }
+
+module.exports = Linter
