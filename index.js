@@ -24,7 +24,6 @@ Linter.prototype.lint = function lint (source) {
       result.actions.action.forEach(function (action) {
         if (action.action_type[0] === 'create_asset') {
           if (action.parentid && action.parentid[0] === '1') {
-            console.log('lol')
             self.emit('notice', 'Top most root node (#1) in use.')
           }
         }
